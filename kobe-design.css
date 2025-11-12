@@ -32,9 +32,11 @@ body {
     }
 
     .logo {
-        margin-bottom: 10px;
-    }
-
+    width: 180px;  /* 基本サイズ */
+    max-width: 40%; /* 画面幅の40%まで */
+    height: auto;  /* 縦横比を保持 */
+}
+    
     .nav-links {
         flex-direction: column; /* リンクを縦並びに */
         width: 100%;
@@ -279,5 +281,10 @@ footer {
 
     .tagline {
         font-size: 1.2rem;
+    }
+
+    .logo {
+        width: 120px; /* スマホでは少し小さめ */
+        max-width: 60%; /* 画面幅の60%まで */
     }
 }
