@@ -25,43 +25,59 @@ body {
 /* ============================== */
 @media (max-width: 600px) {
     .main-header {
-        flex-direction: column; /* ロゴとナビを縦並びに */
-        align-items: center;    /* 中央揃えに */
-        height: auto;
-        padding: 10px 0;
-    }
+    background-color: #E6E8EA; /* 暗い背景色 */
+    color: #4A5E7C;
+    padding: 0 20px;
+    height: 60px; /* 高さを固定 */
+    
+    /* Flexboxでロゴとナビゲーションを水平に配置 */
+    display: flex;
+    justify-content: space-between; /* 両端に配置 */
+    align-items: center; /* 垂直方向の中央揃え */
+    
+    /* 常に画面上部に固定 */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box; /* パディングを幅に含める */
+    z-index: 1000; /* 他の要素の上に表示 */
+}
 
-   .logo {
+/* ロゴのスタイル */
+.logo {
     /* color: white; */
     /* text-decoration: none; 下線を削除 */
     /* font-size: 1.5em; */
     /* font-weight: bold; */
     width: 180px;
 }
-    
-    .nav-links {
-        flex-direction: column; /* リンクを縦並びに */
-        width: 100%;
-        text-align: center;     /* 中央揃え */
-        padding: 0;
-        margin: 0;
-    }
 
-    .nav-links li {
-        margin: 5px 0;          /* リンク間のスペース */
-    }
+/* ナビゲーションリストのスタイル */
+.nav-links {
+    list-style: none; /* リストのマーカー（点）を削除 */
+    padding: 0;
+    margin: 0;
+    display: flex; /* リンクを水平に配置 */
 }
 
+.nav-links li {
+    margin-left: 20px; /* リンク間のスペース */
+}
+
+/* ナビゲーションリンクのスタイル */
 .nav-links a {
-    text-decoration: none;
     color: #4A5E7C;
-    font-weight: 500;
-    transition: color 0.3s;
+    text-decoration: none;
+    padding: 10px 0;
+    transition: color 0.3s; /* ホバー時のアニメーション */
 }
 
 .nav-links a:hover {
-    color: #E1B955;
+    color: #E1B955; /* ホバーで色を変更 */
 }
+
+/*
 
 /* ============================== */
 /* ヒーローセクション（改良版） */
