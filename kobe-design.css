@@ -32,9 +32,9 @@ body {
     }
 
     .logo {
-    width: 180px;  /* 基本サイズ */
-    max-width: 40%; /* 画面幅の40%まで */
-    height: auto;  /* 縦横比を保持 */
+    width: 180px;
+    max-width: 100%;
+    height: auto;
 }
     
     .nav-links {
@@ -284,7 +284,8 @@ footer {
     }
 
     .logo {
-        width: 120px; /* スマホでは少し小さめ */
-        max-width: 60%; /* 画面幅の60%まで */
+        width: 120px !important; /* 強制的にサイズ変更 */
+        max-width: 80%;
+        height: auto;
     }
 }
