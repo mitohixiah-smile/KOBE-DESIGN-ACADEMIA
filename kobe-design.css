@@ -256,29 +256,29 @@ footer {
     }
 
     .main-header {
-        flex-direction: column; /* ロゴとナビ縦並び */
-        align-items: center;    /* 中央揃え */
+        flex-direction: column;   /* ロゴとナビを縦並び */
+        align-items: center;      /* 中央揃え */
         height: auto;
         padding: 10px 0;
     }
 
-     .logo {
-        width: 10％％ !important;
-        max-width: 120px;
+    .logo {
+        width: 120px !important;  /* ロゴ幅を固定 */
+        max-width: 80%;           /* 画面幅を超えないように */
+        height: auto;
     }
 
     .nav-links {
-        flex-direction: column;
+        flex-direction: column;   /* リンクを縦並び */
         width: 100%;
-        text-align: center;
+        text-align: center;       /* 中央揃え */
         padding: 0;
-        margin: 0;
+        margin: 10px 0 0 0;
     }
 
     .nav-links li {
-        margin: 5px 0;
+        margin: 5px 0;            /* リンク間のスペース */
     }
-
     .school-intro-section h2,
     .reason-section h2,
     .philosophy-section h2 {
