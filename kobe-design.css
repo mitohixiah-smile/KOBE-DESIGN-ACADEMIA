@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 /* ============================== */
 /* 基本リセットと共通設定 */
 /* ============================== */
@@ -29,7 +28,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #E6E8EA;
-    padding: 10px 20px;
+    padding: 10px 40px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -37,20 +36,21 @@ body {
 }
 
 .logo {
-    width: 150px;
+    width: 180px;
     height: auto;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #4A5E7C;
     font-weight: 500;
+    transition: color 0.3s;
 }
 
 .nav-links a:hover {
@@ -63,7 +63,7 @@ body {
 .hero-section {
     position: relative;
     width: 100%;
-    height: 60vh;
+    height: 70vh;
     overflow: hidden;
 }
 
@@ -75,8 +75,8 @@ body {
 
 .hero-text {
     position: absolute;
-    left: 20px;
-    bottom: 20%;
+    left: 50px;
+    bottom: 25%;
     color: white;
     font-weight: 700;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
@@ -84,7 +84,7 @@ body {
 }
 
 .hero-text h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 @keyframes fadein {
@@ -98,29 +98,31 @@ body {
 .school-intro-section {
     background-color: #4b6278;
     color: white;
-    padding: 60px 20px;
+    padding: 80px 60px;
     text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .school-intro-section h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 15px;
 }
 
 .tagline {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 20px;
 }
 
 .description {
-    font-size: 1rem;
-    margin-bottom: 30px;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
 }
 
 .school-intro-section video {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     border-radius: 8px;
 }
 
@@ -129,43 +131,49 @@ body {
 /* ============================== */
 .reason-section {
     background-color: #ffcc66;
-    padding: 60px 20px;
-    text-align: left;
+    padding: 80px 60px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
 }
 
 .reason-section h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     border-bottom: 3px solid #333;
     display: inline-block;
     padding-bottom: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 }
 
 .reason-content-wrapper {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .reason-text-block {
-    flex: 1 1 300px;
+    flex: 3 1 600px;
+}
+
+.reason-text-block p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
 }
 
 .reason-chart-block {
-    flex: 1 1 200px;
+    flex: 2 1 400px;
     text-align: center;
 }
 
 .reason-chart-block h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 .reason-chart-block img {
     width: 100%;
-    max-width: 300px;
     height: auto;
 }
 
@@ -175,21 +183,23 @@ body {
 .philosophy-section {
     background-color: #334455;
     color: #fff;
-    padding: 60px 20px;
+    padding: 80px 60px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
 }
 
 .content-wrapper {
     display: flex;
-    gap: 20px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
 .text-block, .image-block {
-    flex: 1 1 300px;
+    flex: 1 1 500px;
 }
 
 .text-block h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 15px;
 }
 
@@ -210,33 +220,51 @@ footer {
     background-color: #e8ecef;
     color: #4b6278;
     text-align: center;
-    padding: 30px 20px;
+    padding: 40px 20px;
 }
 
 /* ============================== */
 /* レスポンシブ調整 */
 /* ============================== */
+@media (max-width: 1200px) {
+    .hero-text h1 {
+        font-size: 2.5rem;
+        left: 40px;
+    }
+}
+
 @media (max-width: 900px) {
     .hero-text h1 {
         font-size: 2rem;
     }
-    .reason-content-wrapper, .content-wrapper {
+
+    .school-intro-section,
+    .reason-section,
+    .philosophy-section {
+        padding: 60px 40px;
+    }
+
+    .reason-content-wrapper,
+    .content-wrapper {
         flex-direction: column;
         align-items: center;
     }
-    .reason-text-block, .reason-chart-block,
-    .text-block, .image-block {
+
+    .reason-text-block,
+    .reason-chart-block,
+    .text-block,
+    .image-block {
         flex: 1 1 100%;
     }
 }
 
 @media (max-width: 600px) {
     .hero-section {
-        height: 40vh;
+        height: 50vh;
     }
 
     .hero-text {
-        left: 10px;
+        left: 20px;
         bottom: 15%;
         font-size: 1rem;
     }
@@ -244,6 +272,10 @@ footer {
     .school-intro-section h2,
     .reason-section h2,
     .philosophy-section h2 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
     }
 }
