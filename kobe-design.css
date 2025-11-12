@@ -62,12 +62,13 @@ body {
 }
 
 /* ============================== */
-/* ヒーローセクション */
+/* ヒーローセクション（改良版） */
 /* ============================== */
 .hero-section {
     position: relative;
     width: 100%;
-    height: 150vh;
+    min-height: 80vh;   /* PCでの最小高さ */
+    max-height: 100vh;  /* PCでの最大高さ */
     overflow: hidden;
 }
 
@@ -228,7 +229,7 @@ footer {
 }
 
 /* ============================== */
-/* レスポンシブ調整 */
+/* レスポンシブ調整（改良版） */
 /* ============================== */
 @media (max-width: 1200px) {
     .hero-text h1 {
@@ -241,36 +242,42 @@ footer {
     .hero-text h1 {
         font-size: 2rem;
     }
-
-    .school-intro-section,
-    .reason-section,
-    .philosophy-section {
-        padding: 60px 40px;
-    }
-
-    .reason-content-wrapper,
-    .content-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .reason-text-block,
-    .reason-chart-block,
-    .text-block,
-    .image-block {
-        flex: 1 1 100%;
-    }
 }
 
 @media (max-width: 600px) {
     .hero-section {
-        height: 50vh;
+        height: 50vh; /* スマホ用 */
     }
 
     .hero-text {
         left: 20px;
         bottom: 15%;
         font-size: 1rem;
+    }
+
+    .main-header {
+        flex-direction: column; /* ロゴとナビ縦並び */
+        align-items: center;    /* 中央揃え */
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .logo {
+        width: 120px !important; /* 強制的に縮小 */
+        max-width: 80%;
+        height: auto;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-links li {
+        margin: 5px 0;
     }
 
     .school-intro-section h2,
@@ -281,11 +288,5 @@ footer {
 
     .tagline {
         font-size: 1.2rem;
-    }
-
-    .logo {
-        width: 120px !important; /* 強制的にサイズ変更 */
-        max-width: 80%;
-        height: auto;
     }
 }
