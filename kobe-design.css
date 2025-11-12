@@ -5,756 +5,245 @@
 }
 
 
-/* 基本的なリセット */
-body {
+/* ============================== */
+/* 基本リセットと共通設定 */
+/* ============================== */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    padding-top: 60px; /* ヘッダーの高さ分、コンテンツを下にずらす */
-}
-
-/* ヘッダーのスタイル */
-.main-header {
-    background-color: #E6E8EA; /* 暗い背景色 */
-    color: #4A5E7C;
-    padding: 0 20px;
-    height: 60px; /* 高さを固定 */
-    
-    /* Flexboxでロゴとナビゲーションを水平に配置 */
-    display: flex;
-    justify-content: space-between; /* 両端に配置 */
-    align-items: center; /* 垂直方向の中央揃え */
-    
-    /* 常に画面上部に固定 */
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box; /* パディングを幅に含める */
-    z-index: 1000; /* 他の要素の上に表示 */
-}
-
-/* ロゴのスタイル */
-.logo {
-    /* color: white; */
-    /* text-decoration: none; 下線を削除 */
-    /* font-size: 1.5em; */
-    /* font-weight: bold; */
-    width: 180px;
-}
-
-/* ナビゲーションリストのスタイル */
-.nav-links {
-    list-style: none; /* リストのマーカー（点）を削除 */
     padding: 0;
-    margin: 0;
-    display: flex; /* リンクを水平に配置 */
+    box-sizing: border-box;
 }
 
-.nav-links li {
-    margin-left: 20px; /* リンク間のスペース */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding-top: 60px; /* ヘッダー固定分 */
 }
 
-/* ナビゲーションリンクのスタイル */
+/* ============================== */
+/* ヘッダー */
+/* ============================== */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E6E8EA;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
 .nav-links a {
-    color: #4A5E7C;
     text-decoration: none;
-    padding: 10px 0;
-    transition: color 0.3s; /* ホバー時のアニメーション */
+    color: #4A5E7C;
+    font-weight: 500;
 }
 
 .nav-links a:hover {
-    color: #E1B955; /* ホバーで色を変更 */
+    color: #E1B955;
 }
 
-/*
-    モバイル向けスタイル (ナビゲーションを縦に並べる)
-    画面幅が600px以下の場合に適用されます。
-    このシンプルな例ではナビゲーションは常に表示されますが、
-    通常はハンバーガーメニューで隠します。
-*/
-@media (max-width: 600px) {
-    .main-header {
-        height: auto; /* 高さを自動調整 */
-        flex-direction: column; /* 要素を縦に並べる */
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    
-    .logo {
-        margin-bottom: 10px; /* ロゴの下にスペース */
-    }
-
-    .nav-links {
-        flex-direction: column; /* リンクを縦に並べる */
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-links li {
-        margin: 5px 0;
-    }
-}
-
-
-/* ⇩上2つのボックス部分⭐️⭐️⭐️ */
-
-/* リセットとフォントの基本設定 */
-body {
-    margin: 0;
-    font-family: 'Noto Sans JP', sans-serif;
-}
-
-/* ------------------------------------ */
-/* ヒーローセクションのCSS */
-/* ------------------------------------ */
+/* ============================== */
+/* ヒーローセクション */
+/* ============================== */
 .hero-section {
-    /* **【重要】** 文字の位置の基準にする */
-    position: relative; 
+    position: relative;
     width: 100%;
-    /* 高さの制限（画面の半分程度） */
-    max-height: 100vh; 
-    overflow: hidden; 
+    height: 60vh;
+    overflow: hidden;
 }
 
-/* 画像の設定 */
 .hero-image {
     width: 100%;
     height: 100%;
-    /* 画像をコンテナに合わせてトリミングし、縦横比を維持 */
-    object-fit: cover; 
-    display: block;
+    object-fit: cover;
 }
 
-/* 重ねる文字の設定 */
 .hero-text {
-    /* **【重要】** 画像の上に浮かせる */
-    position: absolute; 
-    
-    /* 画面の左端から20px、下から20%の位置に配置 */
-    left: 40px; 
-    bottom: 20%; 
-    
-    /* 文字の装飾 */
-    color: white; 
-    font-size: 1.5em; /* フォントを大きく */
+    position: absolute;
+    left: 20px;
+    bottom: 20%;
+    color: white;
     font-weight: 700;
-    /* 文字の影で背景に馴染ませる */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    animation: fadein 2s ease-in;
 }
 
 .hero-text h1 {
-    margin: 0;
-    font-size: 2.5em;
+    font-size: 2.5rem;
 }
 
-.hero-text {
-    animation-name: fadein_anime;
-    animation-fill-mode: both;
-    animation-duration: 3s;
-    animation-timing-function: ease;
-    animation-delay: 0.5s;
-    animation-direction: normal;
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
-@keyframes fadein_anime {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-/* ------------------------------------ */
-/* 学校紹介セクションのCSS */
-/* ------------------------------------ */
+/* ============================== */
+/* 学校紹介セクション */
+/* ============================== */
 .school-intro-section {
-    /* 背景色（スクリーンショットの濃い青/灰色） */
-    background-color: #4b6278; 
-    color: white; /* 文字色を白に */
-    padding: 60px 40px; /* 上下左右の余白 */
-    text-align: center; /* 全てのテキストを中央揃え */
-    max-width: 90%;
-    margin: 0 auto;
+    background-color: #4b6278;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
 }
 
-/* タイトルと説明文のコンテナ */
-.text-content {
-    max-width: 700px; /* テキストの幅を読みやすく制限 */
-    margin: 0 auto;
-}
-
-/* メインタイトルのスタイル */
 .school-intro-section h2 {
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    margin-bottom: 15px;
 }
 
-/* サブタイトルと説明文のスタイル */
 .tagline {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: 500;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .description {
-    font-size: 1.05em;
-    margin-bottom: 40px;
-}
-
-video {
-    max-width: 80%;
-}
-
-/* ⇩3つ目4つ目のボックス部分⭐️⭐️⭐️ */
-
-/* ------------------------------------ */
-/* 選ばれる理由セクションのCSS (変更・追加部分) */
-/* ------------------------------------ */
-.reason-section {
-    /* 以前のシンプルな背景色とパディングを維持 */
-    background-color: #ffcc66; /* 少し落ち着いた黄色 */
-    padding: 60px 40px; 
-    color: #333; 
-    /* 背景色を広げたいので、width: 100%のままにする */
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* 左右のブロックを横並びにするラッパー */
-.reason-content-wrapper {
-    /* 【重要】Flexboxで左右に並べる */
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* 上端に揃える */
-    
-    /* 内容の幅を制限し、中央に寄せる */
-    max-width: 1200px; 
-    margin: 0 auto; 
-}
-
-/* タイトルのスタイル（変更なし） */
-.reason-section h2 {
-    font-size: 2.2em;
-    font-weight: bold;
-    border-bottom: 3px solid #333; 
-    display: inline-block;
-    padding-bottom: 10px;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* 左側のテキストブロック */
-.reason-text-block {
-    /* 左側を広く（例: 全体の60%の幅） */
-    flex: 3; /* 3の比率 */
-    padding-right: 30px; /* グラフとの間にスペース */
-}
-
-.reason-text-block p {
-    font-size: 1.05em;
-    line-height: 1.8;
-}
-
-/* 右側のグラフブロック */
-.reason-chart-block {
-    /* 右側を狭く（例: 全体の40%の幅） */
-    flex: 2; /* 2の比率 */
-    text-align: center; /* グラフとタイトルを中央寄せ */
-}
-
-/* グラフのタイトルのスタイル */
-.reason-chart-block h3 {
-    font-size: 2em;
-    font-weight: 500;
-    color: #4b6278; /* 落ち着いた青色 */
-    margin-top: 0;
-}
-
-/* グラフの画像 */
-.employment-chart {
-    max-width: 100%; /* 親要素の幅を超えないようにする */
-    height: auto;
-    display: block;
-}
-
-/* ------------------------------------ */
-/* モバイル対応 (縦並びに戻す) */
-/* ------------------------------------ */
-@media (max-width: 800px) {
-    .reason-content-wrapper {
-        flex-direction: column; /* 縦に並べる */
-    }
-    
-    /* 縦並びになったら、左右のブロックの幅を100%にする */
-    .reason-text-block, .reason-chart-block {
-        flex: none; /* Flexboxの幅指定を解除 */
-        width: 100%; 
-        padding-right: 0;
-        padding-bottom: 30px; /* セクション間にスペース */
-    }
-}
-
-
-/* ------------------------------------ */
-/* 選ばれる理由セクションのCSS */
-/* ------------------------------------ */
-.reason-section {
-    /* 北欧風のアクセントカラー（黄色）を設定 */
-    background-color: #ffcc66; /* 少し落ち着いた黄色 */
-    padding: 60px 40px; /* 上下の余白 */
-    color: #333; /* 文字色を濃い灰色に */
-    
-    /* セクションの幅を制限し、中央に寄せる（任意） */
-    max-width: 1200px;
-    margin: 40px auto; 
-}
-
-.reason-section h2 {
-    font-size: 2.2em;
-    font-weight: bold;
-    /* 下線風にボーダーを設定 */
-    border-bottom: 3px solid #333; 
-    display: inline-block; /* h2の幅を下線に合わせる */
-    padding-bottom: 10px;
-    margin-top: 0;
-    margin-bottom: 25px;
-}
-
-.reason-section p {
-    font-size: 1.05em;
-    line-height: 1.8;
-    max-width: 800px; /* テキストの幅を読みやすく制限 */
-}
-
-
-
-/* ------------------------------------ */
-/* 理念セクションのCSS */
-/* ------------------------------------ */
-.philosophy-section {
-    background-color: #334455; /* 北欧の落ち着いた青（濃いめの灰色） */
-    padding: 60px 40px; /* 上下の余白 */
-    color: #fff; /* 文字色を濃い灰色に */
-    
-    /* セクションの幅を制限し、中央に寄せる（任意） */
-    max-width: 1200px;
-    margin: 40px auto; 
-}
-
-.content-wrapper {
-    /* **【重要】** 要素を横並びにする Flexbox */
-    display: flex;
-    /* 画面幅全体を使うように設定 */
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* 左右それぞれのブロックのスタイル */
-.text-block, .image-block {
-    /* 左右の幅を均等（50%ずつ）にする */
-    flex: 1;
-    /* もし左右の比率を変えるなら flex: 1.5; や flex: 2; などに調整 */
-}
-
-/* 左側のテキスト部分 */
-.text-block {
-    padding: 60px 40px;
-}
-
-.text-block h2 {
-    font-size: 2em;
-    margin-top: 0;
-}
-
-.tagline {
-    font-size: 1.2em;
-    font-weight: 700;
+    font-size: 1rem;
     margin-bottom: 30px;
 }
 
-.text-block p {
-    line-height: 1.8;
+.school-intro-section video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
 }
 
-/* 右側の画像部分 */
-.image-block {
-    /* 画像がコンテナから溢れないように隠す */
-    overflow: hidden;
+/* ============================== */
+/* 選ばれる理由セクション */
+/* ============================== */
+.reason-section {
+    background-color: #ffcc66;
+    padding: 60px 20px;
+    text-align: left;
+}
+
+.reason-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 3px solid #333;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.reason-content-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.reason-text-block {
+    flex: 1 1 300px;
+}
+
+.reason-chart-block {
+    flex: 1 1 200px;
+    text-align: center;
+}
+
+.reason-chart-block h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.reason-chart-block img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+/* ============================== */
+/* 理念セクション */
+/* ============================== */
+.philosophy-section {
+    background-color: #334455;
+    color: #fff;
+    padding: 60px 20px;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.text-block, .image-block {
+    flex: 1 1 300px;
+}
+
+.text-block h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.text-block p {
+    margin-bottom: 15px;
 }
 
 .philosophy-image {
     width: 100%;
-    height: 100%;
-    /* 画像をブロックに合わせてトリミング */
-    object-fit: cover; 
-    display: block;
-}
-
-/* ------------------------------------ */
-/* モバイル対応 (横並びを縦並びにする) */
-/* ------------------------------------ */
-@media (max-width: 800px) {
-    .content-wrapper {
-        /* 画面幅が狭い場合、要素を縦に並べる */
-        flex-direction: column;
-    }
-    /* 画像をテキストの下に表示し、高さを制限 */
-    .image-block {
-        height: 300px; 
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* ⇩コンテンツ⇩ */
-
-.a {
-    padding: 5px 20px;
-    margin: 20px 50px;
-    background-color: #4A5E7C;
-}
-
-.b {
-    padding: 5px 20px;
-    margin: 20px 50px;
-    background-color: #E1B955;
-}
-
-.c {
-    padding: 5px 20px;
-    margin: 20px 50px;
-    background-color: #4A5E7C;
-}
-
-/* ⇩⇩⇩2nd-Stage⭐️⭐️⭐️⭐️⭐️⭐️⭐️ */
-
-/* ⇩お知らせバナー⭐️⭐️⭐️ */
-
-/* ------------------------------------ */
-/* ページヘッダーのCSS */
-/* ------------------------------------ */
-.page-header {
-    /* **【重要】** テキストの位置の基準点にする */
-    position: relative; 
-    
-    /* 高さを固定（例: 200px） */
-    height: 200px; 
-    width: 100%;
-    margin-bottom: 40px; /* 次のセクションとの間に余白を空ける */
-    overflow: hidden;
-
-    /* ------------------------------ */
-    /* 背景画像の設定 */
-    /* ------------------------------ */
-    /* 実際の画像ファイル名に置き換えてください */
-    background-image: url('flower.png'); 
-    background-size: cover; /* 画像をセクション全体に広げる */
-    background-position: center; /* 画像を中央に配置 */
-    
-    /* ------------------------------ */
-    /* テキストを中央に配置する魔法 */
-    /* ------------------------------ */
-    display: flex; /* Flexboxを有効にする */
-    justify-content: center; /* 横方向の中央揃え */
-    align-items: center; /* 縦方向の中央揃え */
-}
-
-/* タイトルテキストのスタイル */
-.page-title {
-    /* 背景画像の上に浮かせるため、position: absolute; も使えますが、
-       今回はFlexboxを使っているため、positionは不要でシンプルです */
-    font-size: 3em; 
-    font-weight: 700;
-    color: #4b6278; /* 落ち着いた青色 */
-    
-    /* 背景パターンに馴染むように、文字の周りにわずかな影をつける */
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); 
-    
-    margin: 0; /* h1のデフォルトの余白を消す */
-}
-
-/* ⇩最近の授業内容⭐️⭐️⭐️ */
-
-/* ------------------------------------ */
-/* 最近の授業内容セクションのCSS */
-/* ------------------------------------ */
-.lessons-section {
-    max-width: 900px; /* 内容の最大幅を制限し、中央に寄せる */
-    margin: 60px auto; 
-    padding: 0 20px;
-    color: #333;
-}
-
-/* タイトルのスタイル */
-.lessons-section h2 {
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 30px;
-    /* 左側の青い縦線（ラフを再現） */
-    border-left: 10px solid #4b6278; 
-    padding-left: 15px;
-    margin-left: -25px; /* 線を左に少しはみ出させるための調整 */
-}
-
-/* リスト全体のスタイル */
-.lesson-list-container ul {
-    list-style: none; /* 【重要】リストの点（・）を消す */
-    padding: 0;
-}
-
-/* 各リスト項目（授業内容）のスタイル */
-.lesson-list-container li {
-    margin-bottom: 40px; /* 各項目の間にスペースを空ける */
-    padding-bottom: 20px;
-    /* 項目間に薄い線を入れる場合（ラフにはありませんが、区切りとして）
-    border-bottom: 1px solid #ddd; */
-}
-
-/* テキストのスタイル */
-.lesson-list-container p {
-    /* リストの点の代わりに、文字の前に点を入れる */
-    content: "・"; /* CSSでマーカーを作成 */
-    color: #4b6278; /* 点の色 */
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    
-    /* 最初の行インデントを調整して、・を文字の前に出す */
-    text-indent: -1.2em;
-    padding-left: 1.2em;
-}
-
-/* 画像の箱のスタイル */
-.lesson-image-wrapper {
-    max-width: 600px; /* 画像の最大幅を制限 */
-    margin-top: 15px;
-    /* 画像を中央に寄せる */
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 画像に影をつけて立体感を出す */
-}
-
-/* 画像自体のスタイル */
-.lesson-image {
-    width: 100%;
     height: auto;
-    display: block;
-}
-
-/* ⇩オープンキャンパス開催中！⭐️⭐️⭐️ */
-
-/* ------------------------------------ */
-/* オープンキャンパスバナーのCSS */
-/* ------------------------------------ */
-.open-campus-banner {
-    /* セクション全体を中央寄せするための設定 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    padding: 40px 0; /* 上下の余白 */
-    width: 100%;
-}
-
-.banner-content {
-    /* 背景色と角の丸み */
-    background-color: #E1B955; /* 落ち着いた黄色（北欧風の温かみ） */
-    border-radius: 15px; /* 角を丸くする */
-    
-    /* 内容の幅を制限（最大幅を設定） */
-    max-width: 700px; 
-    
-    /* セクションの中での余白 */
-    padding: 40px 40px 30px; 
-    
-    text-align: center; /* テキストを中央揃え */
-    color: #333; /* 濃い灰色 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* わずかな影 */
-}
-
-/* メインの見出し */
-.main-message {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 10px;
-}
-
-/* 詳細のテキスト */
-.sub-message {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-}
-
-/* 画像を包む箱のスタイル */
-.banner-image-wrapper {
-    /* 画像を中央に寄せる */
-    margin: 0 auto; 
-    /* 画像の最大幅を親要素に合わせる */
-    max-width: 600px;
-    overflow: hidden;
-    border-radius: 8px; /* 画像の角も少し丸くする */
-}
-
-/* 画像自体のスタイル */
-.banner-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-
-
-/* ⇩お問い合わせ⭐️⭐️⭐️ */
-
-/* ------------------------------------ */
-/* 問い合わせページヘッダー (背景画像と文字) */
-/* ------------------------------------ */
-.page-header.contact-header {
-    height: 200px; 
-    width: 100%;
-    margin-bottom: 40px; 
-    
-    /* Flexboxでタイトルを中央に配置 */
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    position: relative; 
-    
-    /* 背景画像の設定（ファイル名を置き換えてください） */
-    background-image: url('contact-pattern.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-}
-
-.page-header.contact-header .page-title {
-    font-size: 3em; 
-    font-weight: 700;
-    color: #4b6278; 
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); 
-    margin: 0;
-}
-
-/* ------------------------------------ */
-/* フォームセクション */
-/* ------------------------------------ */
-.contact-form-section {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0 80px;
-}
-
-/* フォームを囲む箱（薄い灰色の背景の箱） */
-.form-container {
-    background-color: #e5e5e5; /* 薄い灰色の背景 */
-    max-width: 600px;
-    width: 100%;
-    padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-/* 各入力欄のグループ */
-.form-group {
-    margin-bottom: 20px;
-}
-
-/* ラベル（お名前、メールアドレスなど） */
-.form-group label {
-    display: block; /* ブロック要素にして、入力欄の上に配置 */
-    font-size: 1rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 8px;
-}
-
-/* テキスト入力欄、メールアドレス、電話番号、セレクトボックスの基本設定 */
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group select,
-.form-group textarea {
-    width: 100%; 
-    padding: 10px 12px;
-    border: 1px solid #ccc; /* 薄いグレーの枠線 */
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box; /* paddingやborderをwidthに含める（重要） */
-}
-
-/* テキストエリア（お問い合わせ内容） */
-.form-group textarea {
-    resize: vertical; /* 縦方向のみリサイズ可能にする */
-}
-
-/* 送信ボタンのスタイル */
-.submit-button {
-    display: block;
-    width: 150px; /* ボタンの幅を固定 */
-    padding: 12px;
-    margin: 30px auto 0; /* 中央寄せ */
-    
-    background-color: #4b6278; /* 落ち着いた青色 */
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer; /* マウスオーバーでカーソルを変更 */
-    transition: background-color 0.3s;
-}
-
-.submit-button:hover {
-    background-color: #3a4b5c; /* ホバーで少し濃い色に */
-}
-
-
-
-
-
-
-
-
-/* ⇩フッダー⭐️⭐️⭐️ */
-
-/* ------------------------------------ */
-/* フッターのCSS */
-/* ------------------------------------ */
+/* ============================== */
+/* フッター */
+/* ============================== */
 footer {
-    /* 背景色: スクリーンショットの明るい灰色 */
-    background-color: #e8ecef; 
-    
-    /* 文字色: 北欧風の落ち着いた青 */
+    background-color: #e8ecef;
     color: #4b6278;
-    
-    /* 高さ: 上下の余白（padding）で高さを調整 */
-    padding: 30px 0; 
-    
-    /* **【重要】** 文字を上下左右の中心に配置する設定 */
-    display: flex; /* Flexboxを有効にする */
-    justify-content: center; /* 横方向（左右）の中央揃え */
-    align-items: center; /* 縦方向（上下）の中央揃え */
-    
-    width: 100%; /* 幅を画面いっぱいに広げる */
-    margin-top: 50px; /* 上のコンテンツとの間にスペースを空ける */
+    text-align: center;
+    padding: 30px 20px;
 }
 
-/* コピーライトテキストのスタイル */
-.copyright {
-    font-size: 1em;
-    font-weight: 500;
-    margin: 0; /* pタグのデフォルトの余白を消す */
+/* ============================== */
+/* レスポンシブ調整 */
+/* ============================== */
+@media (max-width: 900px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    .reason-content-wrapper, .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .reason-text-block, .reason-chart-block,
+    .text-block, .image-block {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        height: 40vh;
+    }
+
+    .hero-text {
+        left: 10px;
+        bottom: 15%;
+        font-size: 1rem;
+    }
+
+    .school-intro-section h2,
+    .reason-section h2,
+    .philosophy-section h2 {
+        font-size: 1.5rem;
+    }
 }
