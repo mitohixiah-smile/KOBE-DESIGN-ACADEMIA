@@ -23,27 +23,29 @@ body {
 /* ============================== */
 /* ヘッダー */
 /* ============================== */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #E6E8EA;
-    padding: 10px 40px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
+@media (max-width: 600px) {
+    .main-header {
+        flex-direction: column; /* ロゴとナビを縦並びに */
+        align-items: center;    /* 中央揃えに */
+        height: auto;
+        padding: 10px 0;
+    }
 
-.logo {
-    width: 180px;
-    height: auto;
-}
+    .logo {
+        margin-bottom: 10px;
+    }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 25px;
+    .nav-links {
+        flex-direction: column; /* リンクを縦並びに */
+        width: 100%;
+        text-align: center;     /* 中央揃え */
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-links li {
+        margin: 5px 0;          /* リンク間のスペース */
+    }
 }
 
 .nav-links a {
