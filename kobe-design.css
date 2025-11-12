@@ -32,9 +32,11 @@ body {
     }
 
    .logo {
-    width: 180px;       /* PCでも最大180pxに固定 */
-    max-width: 180px;   /* 幅以上にはならない */
-    height: auto;
+    /* color: white; */
+    /* text-decoration: none; 下線を削除 */
+    /* font-size: 1.5em; */
+    /* font-weight: bold; */
+    width: 180px;
 }
     
     .nav-links {
